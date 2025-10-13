@@ -14,25 +14,21 @@ modifying it in tirrex_workspace, you have to clone this package into your works
 changes locally.
 This allows keeping a clean tirrex_workspace and simplify its update.
 
+This workspace is a fork of [template_ws](https://github.com/Tirrex-Roboterrium/template_ws).
+It contains drivers to control a panther robot using the control command of INRAE TSCF's team.
+
 # Installation
 
-This project is just a template to create your own workspace.
-Instead of cloning the repository using the "code" button of the web interface, you will create your
-own version by clicking the "fork" button.
-This action open a new page to specify the name and the namespace of the workspace.
-Choose a name that best describes what you want to do (example: a short title of your PhD thesis or
-the name of your research project) and select the correct namespace of your research group.
-If you don't know it, ask your supervisors.
-
-You first need to download it using `git clone`.
-Replace the `<elements>` by the correct values
-```bash
-git clone git@<URL_of_your_group>/<name_of_your_project>.git
+By default, this workspace is based on the docker image
+[tirrex_workspace:full](https://github.com/Tirrex-Roboterrium/tirrex_workspace/pkgs/container/tirrex_workspace).
+If docker is not installed on your machine, you first need to follow the instructions of the
+[docker official website](https://docs.docker.com/engine/install/)
+After that, you can check that you have a docker compose version greater that `2.20` by executing:
 ```
-If you receive an error message specifying you don't have permission to use ssh with the server, you
-can follow theses instructions:
-[Cloning by SSH](https://forge.inrae.fr/tscf/knowledge/-/blob/main/git/git_clone_project.md?ref_type=heads#cloning-by-ssh).
+docker compose version
+```
 
+Clone this workspace somewhere on your machine.
 From the root of the workspace, execute the script `create_ws` to create a `.env` that contains
 some environment variables useful to build the docker images, and also clone demos examples.
 ```bash
