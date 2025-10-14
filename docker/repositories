@@ -9,6 +9,10 @@ repositories:
     type: git
     url: https://forge.inrae.fr/tirrex/config_examples.git
     version: main
-  # add your repos here
+
+  src/panther:
+    type: git
+    url: git@github.com:CyrillePierre/panther.git
+    version: main
 
 # vim: ft=yaml

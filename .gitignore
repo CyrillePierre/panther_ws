@@ -5,6 +5,7 @@
 /.cache/
 /.venv/
 /.vscode/
+/data
 
 /.env
 *.dat
