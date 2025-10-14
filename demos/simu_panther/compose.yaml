@@ -23,7 +23,7 @@ services:
   simulator:  # start the simulator and spawn the robot
     <<: [*base]
     command: >-
-      ros2 launch -d tirrex_demo core.launch.py
+      ros2 launch tirrex_demo core.launch.py
         demo_config_directory:=$$CONFIG_DIR
         robot_config_directory:=$$ROBOT_CONFIG_DIR
         robot_namespace:=$$ROBOT_NAMESPACE
