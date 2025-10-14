@@ -1,2 +1,3 @@
-world_package: romea_simulation_gazebo_worlds
-world_name: friction_cone.world
+#world_package: romea_simulation_gazebo_worlds
+#world_name: friction_cone.world
+world_name: farm.world
