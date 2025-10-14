@@ -1,0 +1,117 @@
+sampling_period: 0.1
+
+stop_at_the_end: false
+enable_joystick: true
+autoconfigure: true
+autostart: true
+debug: true
+
+# control setpoint
+setpoint:
+  desired_linear_speed: 1.0
+  desired_lateral_deviation: 0.0
+  desired_course_deviation: 0.0
+
+# configuration of longitudinal control
+longitudinal_control:
+  selected: constant
+  # selected: classic
+  # selected: curvature_transition
+
+  classic:
+    minimal_linear_speed: 0.3
+
+  curvature_transition:
+    minimal_linear_speed: 0.3  # (unit: m/s) minimal speed sent by the command
+    lateral_error_max: 0.20    # (unit: m) maximal admissible error on Y axis 
+    settling_time: 1.0         # (unit: s) settling time on angular speed
+    settling_distance: 5.0     # (unit: m) settling distance for lateral deviation
+    convergence_ratio: 10.0    # (unit: -) ratio between lateral and angular dynamics (>3)
+
+# enable this if you want to use Ackermann controls (classic, predictive)
+# one_steering_equivalence: true
+one_steering_equivalence: true
+
+lateral_control:
+  # selected: back_stepping
+  # selected: skid_backstepping
+  # selected: classic
+  selected: predictive
+
+  back_stepping:
+    gains:
+      kp: -1.5
+      kd: -3.0
+    maximal_omega_d: 0.5
+
+  skid_backstepping:
+    gains:
+      lateral_kp: -1.0  # (unit: 1/m) negative, proportional, spatial diff. eq.
+      course_kp: -2.0   # (unit: 1/s) negative, proportional, temporal diff. eq., < lateral_kp
+    maximal_target_course_deg: 45.  # control the angle to reach the desired lateral deviation
+
+  classic:
+    gains:
+      front_kd: 2.0
+
+  predictive:
+    gains:
+      front_kd: 4.
+    prediction:
+      horizon: 10
+      a0: 0.1642
+      a1: 0.1072
+      b1: 1.0086
+      b2: -0.2801
+
+sliding_observer:
+  # selected: none
+  # selected: picard_skid_backstepping
+  # selected: picard_skid_lyapunov
+  # selected: extended_cinematic
+  selected: extended_lyapunov
+
+  picard_skid_backstepping: # values are taken from the the Guillaume Picard PhD
+    gains:
+      lateral_kp: -6.0
+      course_kp: -6.0
+      longitudinal_kp: -8.5
+      longitudinal_ki: 0.0  # integral
+    filter_weights:  # the following variable are smoothed using a 1st order Butterworth filter
+      slip_angle: 0.9
+      linear_speed_disturb: 0.9
+      angular_speed_disturb: 0.8
+
+  picard_skid_lyapunov: # values are taken from the the Guillaume Picard PhD
+    gains:
+      position_x_kp: -5.0
+      position_x_ki: 0.0  # integral
+      position_y_kp: -5.0
+      course_kp: -5.0
+      slip_angle_kp: -3.0
+      linear_speed_disturb_kp: -3.0
+      angular_speed_disturb_kp: -3.0
+
+  extended_cinematic:
+    gains:
+      lateral_deviation: -4.
+      course_deviation: -2.
+    filter_weights:
+      lateral_deviation: 0.9
+      course_deviation: 0.9
+      front_sliding_angle: 0.96
+      rear_sliding_angle: 0.9
+
+  extended_lyapunov:
+    gains:
+      x_deviation: -2.
+      y_deviation: -2.1
+      course_deviation: -2.
+      front_sliding_angle: -1.5
+      rear_sliding_angle: -0.8
+
+# configuration for cmd_mux auto connection
+cmd_output:
+  message_type: romea_mobile_base_msgs/SkidSteeringCommand
+  priority: 10 # if -1, disable registering to cmd_mux
+  rate: 10.

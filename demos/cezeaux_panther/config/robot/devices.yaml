@@ -1,0 +1,9 @@
+remote_controller:
+  type: joystick
+  available_mode: all
+ublox:
+  type: gps
+  available_mode: none
+xsens:
+  type: imu
+  available_mode: none
