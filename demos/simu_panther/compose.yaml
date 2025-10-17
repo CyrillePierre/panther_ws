@@ -41,7 +41,6 @@ services:
 
   path_following:  # control the robot to follow the specified trajectory file
     <<: [*base]
-    depends_on: [localisation]
     command: >-
       ros2 launch tirrex_demo robot_path_following.launch.py
         demo_config_directory:=$$CONFIG_DIR
