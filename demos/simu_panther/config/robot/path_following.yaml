@@ -112,6 +112,6 @@ sliding_observer:
 
 # configuration for cmd_mux auto connection
 cmd_output:
-  message_type: romea_mobile_base_msgs/SkidSteeringCommand
+  message_type: geometry_msgs/Twist
   priority: 10 # if -1, disable registering to cmd_mux
   rate: 10.
