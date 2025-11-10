@@ -3,7 +3,7 @@ services:
     extends:
       file: docker/${TIRREX_IMAGE_TAG}.yaml
       service: build
-    command: colcon --log-base /dev/null build --symlink-install --event-handlers event_log- log-
+    command: colcon --log-base /dev/null build --symlink-install --event-handlers event_log- log- --packages-skip panther_hardware
 
   bash:  # open a shell inside the ROS environment of this workspace
     extends:

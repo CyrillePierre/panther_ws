@@ -13,6 +13,9 @@
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>topic_tools</exec_depend>
   <exec_depend>tirrex_demo</exec_depend>
+  <exec_depend>romea_path_following</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>romea_path_tools</exec_depend>
 
   <export>
     <build_type>ament_python</build_type>

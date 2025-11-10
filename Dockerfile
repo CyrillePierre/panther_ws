@@ -17,7 +17,7 @@ RUN --mount=type=bind,source=src,target=/tmp/src \
 # you can add here ubuntu packages that you want to install (or uncomment the existing ones)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-      # gdb \
+      python3-pyproj \
       # gdbserver \
       # valgrind \
       # strace \
