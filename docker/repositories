@@ -12,7 +12,7 @@ repositories:
 
   src/panther:
     type: git
-    url: git@github.com:CyrillePierre/panther.git
+    url: https://github.com/CyrillePierre/panther.git
     version: main
 
 # vim: ft=yaml
