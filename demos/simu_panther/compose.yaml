@@ -48,7 +48,7 @@ services:
         robot_config_directory:=$$ROBOT_CONFIG_DIR
         robot_namespace:=$$ROBOT_NAMESPACE
         mode:=$$DEMO_MODE
-        trajectory_filename:=recorded_farm.traj
+        trajectory_filename:=cours.traj
 
   path_recorder:  # record a trajectory file from the current localization
     <<: [*base]
