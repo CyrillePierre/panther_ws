@@ -8,7 +8,7 @@ debug: true
 
 # control setpoint
 setpoint:
-  desired_linear_speed: 1.0
+  desired_linear_speed: 0.5
   desired_lateral_deviation: 0.0
   desired_course_deviation: 0.0
 
