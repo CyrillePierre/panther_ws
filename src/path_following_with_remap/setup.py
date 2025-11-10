@@ -22,6 +22,8 @@ setup(
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            "preprocess_node = path_following_with_remap.preprocess:main",
+            ],
     },
 )
