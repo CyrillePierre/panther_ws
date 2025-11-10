@@ -19,7 +19,7 @@ longitudinal_control:
   # selected: curvature_transition
 
   classic:
-    minimal_linear_speed: 0.3
+    minimal_linear_speed: 0.2
 
   curvature_transition:
     minimal_linear_speed: 0.3  # (unit: m/s) minimal speed sent by the command
