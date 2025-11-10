@@ -51,7 +51,7 @@ services:
 
   path_recorder:  # record a trajectory file from the current localization
     <<: [*base]
-    depends_on: [localisation]
+    depends_on: []
     profiles: [optional]
     command: >-
       ros2 launch tirrex_demo robot_path_recorder.launch.py
